@@ -10,6 +10,7 @@ Contoh ini menggambarkan kemampuan prosesor ganda pada ESP32-S3 dalam membagi tu
   - Core 1 digunakan untuk menampilkan teks "Hello World" di layar OLED SSD1306 setiap 1 detik.
 - Layar OLED dikendalikan dengan pustaka Adafruit_SSD1306 dan Adafruit_GFX menggunakan komunikasi I2C.
 Program ini menampilkan teks sederhana yang diperbarui secara berkala untuk menunjukkan task yang berjalan di Core 1.
+
 | KOMPONEN | GPIO  | Keterangan | 
 | :--- | :---: | :---: |
 | SDA | 14 | Jalur data I2C |

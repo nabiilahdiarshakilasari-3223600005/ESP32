@@ -1,26 +1,22 @@
 # ESP32-S3 : Dual Core dengan OLED SSD1306
-Dengan menunjukkan cara menjalankan dua task secara paralel di ESP32-S3 satu task menghitung nilai counter di Core 0, dan task lain menampilkan hasilnya ke layar OLED SSD1306 di Core 1.
+Program ini menunjukkan cara menjalankan dua task secara paralel di ESP32-S3 menggunakan pustaka FreeRTOS.
+Satu task berjalan di Core 0 untuk proses utama, dan satu task lainnya berjalan di Core 1 untuk menampilkan teks "Hello World" pada layar OLED SSD1306 melalui komunikasi I2C.
+Contoh ini menggambarkan kemampuan prosesor ganda pada ESP32-S3 dalam membagi tugas secara efisien antara dua inti.
 ## Deskripsi Singkat
-- Menggunakan dua core prosesor ESP32-S3:
-  - Core 0 → Menjalankan counter yang bertambah setiap 100 ms
-  - Core 1 → Menampilkan hasil counter di layar OLED
-- Komunikasi dengan OLED menggunakan protokol I2C
-- Tampilan OLED menunjukkan:
-  - Judul: “ESP32-S3 Dual Core”
-  - Nilai counter yang terus naik setiap detik
-## Konfigurasi Pin
+- ESP32-S3 memiliki dua inti prosesor (Core 0 dan Core 1) yang dapat digunakan untuk menjalankan beberapa proses secara bersamaan.
+- Pada contoh ini:
+  
+  - Core 0 digunakan untuk menjalankan loop utama (kosong).
+  - Core 1 digunakan untuk menampilkan teks "Hello World" di layar OLED SSD1306 setiap 1 detik.
+- Layar OLED dikendalikan dengan pustaka Adafruit_SSD1306 dan Adafruit_GFX menggunakan komunikasi I2C.
+Program ini menampilkan teks sederhana yang diperbarui secara berkala untuk menunjukkan task yang berjalan di Core 1.
 | KOMPONEN | GPIO  | Keterangan | 
 | :--- | :---: | :---: |
 | SDA | 14 | Jalur data I2C |
 | SCL | 13 | Jalur clock I2C |
-| VCC | 3.3V | Sumber daya 3.3 volt |
-| GND | GND | Ground umum |
-## Hasil yang Diharapkan 
-- OLED menampilkan tulisan
-<img width="269" height="58" alt="image" src="https://github.com/user-attachments/assets/1cabde41-e4fa-4789-b28f-2d823e7e7c16" />
+| VCC | 3.3V | Tegangan untuk OLED |
+| GND Hitam | GND | Ground bersama ESP32 |
 
-- Angka counter meningkat setiap detik
-- Menunjukkan pembagian tugas antara dua core prosesor ESP32-S3.
 ## Foto Hasil Simulasi
 <img width="737" height="677" alt="OLED" src="https://github.com/user-attachments/assets/2ab48cea-baac-4094-9209-66f92fb2897e" />
 
